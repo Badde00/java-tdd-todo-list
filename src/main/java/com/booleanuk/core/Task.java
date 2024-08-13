@@ -15,6 +15,10 @@ public class Task {
         return this.name;
     }
 
+    public String getDescription() {
+        return this.description;
+    }
+
     public boolean isCompleted() {
         return completed;
     }
