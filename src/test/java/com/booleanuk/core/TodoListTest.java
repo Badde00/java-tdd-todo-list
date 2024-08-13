@@ -58,4 +58,13 @@ class TodoListTest {
         Assertions.assertFalse(completedTests.contains(task1));
         Assertions.assertTrue(completedTests.contains(task2));
     }
+
+    @Test
+    public void changeCompleteStatus() {
+        TodoList tdl = new TodoList();
+        Task task1 = new Task("a", "a");
+        Assertions.assertFalse(tdl.getTasks("a").isCompleted());
+        tdl.changeCompleteStatus("a");
+        Assertions.assertTrue(tdl.getTasks("a").isCompleted());
+    }
 }
