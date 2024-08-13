@@ -5,9 +5,8 @@ import org.junit.jupiter.api.Test;
 
 class TodoListTest {
     @Test
-    public void exampleTest() {
-        String hello = "Hello";
-        Assertions.assertEquals("Hello", hello);
-        Assertions.assertNotEquals("Goodbye", hello);
+    public void doTasksExist() {
+        Task task = new Task("Sleep", "Get to sleep on time");
+        Assertions.assertEquals("Sleep", task.getName());
     }
 }
