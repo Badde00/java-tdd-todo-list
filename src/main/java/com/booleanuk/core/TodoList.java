@@ -6,7 +6,7 @@ public class TodoList {
     private ArrayList<Task> tdl;
 
     public TodoList() {
-        tdl = new ArrayList<Task>();
+        tdl = new ArrayList<>();
     }
 
     public ArrayList<Task> getTasks() {
@@ -18,7 +18,7 @@ public class TodoList {
     }
 
     public ArrayList<Task> getTasks(boolean filterCompleted) {
-        ArrayList<Task> filtered = new ArrayList<Task>();
+        ArrayList<Task> filtered = new ArrayList<>();
         for (Task t: tdl) {
             if (t.isCompleted()) {
                 filtered.add(t);

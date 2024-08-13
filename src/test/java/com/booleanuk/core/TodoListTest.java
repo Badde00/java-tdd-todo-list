@@ -42,4 +42,20 @@ class TodoListTest {
         Assertions.assertTrue(completedTests.contains(task1));
         Assertions.assertFalse(completedTests.contains(task2));
     }
+
+    @Test
+    public void getFilteredFalseTasks() {
+        TodoList tdl = new TodoList();
+        Task task1 = new Task("a", "a");
+        Task task2 = new Task("b", "b");
+        Assertions.assertFalse(task1.isCompleted());
+        Assertions.assertFalse(task2.isCompleted());
+        task1.complete();
+        Assertions.assertTrue(task1.isCompleted());
+        tdl.addTask(task1);
+        tdl.addTask(task2);
+        ArrayList<Task> completedTests = tdl.getTasks(false);
+        Assertions.assertFalse(completedTests.contains(task1));
+        Assertions.assertTrue(completedTests.contains(task2));
+    }
 }
