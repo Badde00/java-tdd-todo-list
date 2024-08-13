@@ -44,7 +44,9 @@ public class TodoList {
                 task = t;
             }
         }
-        if (task != null) {
+        if (task != null && task.isCompleted()) {
+            task.setCompleted(false);
+        } else if (task != null && !task.isCompleted()) {
             task.complete();
         }
     }
