@@ -63,8 +63,9 @@ class TodoListTest {
     public void changeCompleteStatus() {
         TodoList tdl = new TodoList();
         Task task1 = new Task("a", "a");
-        Assertions.assertFalse(tdl.getTasks("a").isCompleted());
+        tdl.addTask(task1);
+        Assertions.assertFalse(tdl.getTasks("a").getFirst().isCompleted());
         tdl.changeCompleteStatus("a");
-        Assertions.assertTrue(tdl.getTasks("a").isCompleted());
+        Assertions.assertTrue(tdl.getTasks("a").getFirst().isCompleted());
     }
 }

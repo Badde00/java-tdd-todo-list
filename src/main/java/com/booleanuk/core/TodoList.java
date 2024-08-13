@@ -13,10 +13,6 @@ public class TodoList {
         return tdl;
     }
 
-    public void addTask(Task task) {
-        tdl.add(task);
-    }
-
     public ArrayList<Task> getTasks(boolean filterCompleted) {
         ArrayList<Task> filtered = new ArrayList<>();
         for (Task t: tdl) {
@@ -25,5 +21,31 @@ public class TodoList {
             }
         }
         return filtered;
+    }
+
+    public ArrayList<Task> getTasks(String name) {
+        ArrayList<Task> filtered = new ArrayList<>();
+        for (Task t: tdl) {
+            if (t.getName().equals(name)) {
+                filtered.add(t);
+            }
+        }
+        return filtered;
+    }
+
+    public void addTask(Task task) {
+        tdl.add(task);
+    }
+
+    public void changeCompleteStatus(String name) {
+        Task task = null;
+        for (Task t: tdl) {
+            if (t.getName().equals(name)) {
+                task = t;
+            }
+        }
+        if (task != null) {
+            task.complete();
+        }
     }
 }
