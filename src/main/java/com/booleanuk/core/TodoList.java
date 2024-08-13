@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class TodoList {
     private ArrayList<Task> tdl;
@@ -44,9 +45,12 @@ public class TodoList {
                 task = t;
             }
         }
-        if (task != null && task.isCompleted()) {
+        if (task == null) {
+            throw new NoSuchElementException("There is no element by that name");
+        }
+        if (task.isCompleted()) {
             task.setCompleted(false);
-        } else if (task != null && !task.isCompleted()) {
+        } else {
             task.complete();
         }
     }
