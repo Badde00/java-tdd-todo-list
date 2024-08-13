@@ -20,7 +20,7 @@ public class TodoList {
     public ArrayList<Task> getTasks(boolean filterCompleted) {
         ArrayList<Task> filtered = new ArrayList<>();
         for (Task t: tdl) {
-            if (t.isCompleted()) {
+            if (t.isCompleted() == filterCompleted) {
                 filtered.add(t);
             }
         }
