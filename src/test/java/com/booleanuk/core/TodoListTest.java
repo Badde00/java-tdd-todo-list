@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 class TodoListTest {
     @Test
@@ -79,5 +80,11 @@ class TodoListTest {
         Assertions.assertTrue(tdl.getTasks("a").getFirst().isCompleted());
         tdl.changeCompleteStatus("a");
         Assertions.assertFalse(tdl.getTasks("a").getFirst().isCompleted());
+    }
+
+    @Test
+    public void changeCompleteStatusNoSuchElement() {
+        TodoList tdl = new TodoList();
+        Assertions.assertThrows(NoSuchElementException.class, () -> tdl.changeCompleteStatus("a"));
     }
 }
