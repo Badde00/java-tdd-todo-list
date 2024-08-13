@@ -29,9 +29,20 @@ public class TodoList {
         for (Task t: tdl) {
             if (t.getName().equals(name)) {
                 filtered.add(t);
+                break;
             }
         }
         return filtered;
+    }
+
+    public Task getTask(String name) {
+        ArrayList<Task> filtered = new ArrayList<>();
+        for (Task t: tdl) {
+            if (t.getName().equals(name)) {
+                return t;
+            }
+        }
+        return null;
     }
 
     public void addTask(Task task) {

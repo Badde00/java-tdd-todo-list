@@ -8,7 +8,7 @@
 | `TodoList` | `changeCompleteStatus(String taskName)`         | If task 'taskName' was complete           | Returns task 'taskName' with completed now set as false |
 |            |                                                 | If task 'taskName' was incomplete         | Returns task 'taskName' with completed now set as true  |
 |            |                                                 | If there is no task named 'taskName'      | NoSuchElementException                                  |
-| `TodoList` | `getTasks(String taskName)`                     | If there is a task named 'taskName'       | Task@taskName                                           |
+| `TodoList` | `getTask(String taskName)`                      | If there is a task named 'taskName'       | Task@taskName                                           |
 |            |                                                 | If there is no task named 'taskName'      | "There is no task by that name"                         |
 | `TodoList` | `removeTask(String taskName)`                   | If there is a task named 'taskName'       | true                                                    |
 |            |                                                 | If there is no task named 'taskName'      | NoSuchElementException                                  |
