@@ -3,6 +3,8 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 class TodoListTest {
     @Test
     public void doTasksExist() {
@@ -23,5 +25,21 @@ class TodoListTest {
     public void shouldReturnEmptyList() {
         TodoList tdl = new TodoList();
         Assertions.assertEquals(0, tdl.getTasks().size());
+    }
+
+    @Test
+    public void getFilteredTasks() {
+        TodoList tdl = new TodoList();
+        Task task1 = new Task("a", "a");
+        Task task2 = new Task("b", "b");
+        Assertions.assertFalse(task1.isCompleted());
+        Assertions.assertFalse(task2.isCompleted());
+        task1.complete();
+        Assertions.assertTrue(task1.isCompleted());
+        tdl.addTask(task1);
+        tdl.addTask(task2);
+        ArrayList<Task> completedTests = tdl.getTasks(true);
+        Assertions.assertTrue(completedTests.contains(task1));
+        Assertions.assertFalse(completedTests.contains(task2));
     }
 }
