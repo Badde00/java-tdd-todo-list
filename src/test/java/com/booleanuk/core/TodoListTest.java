@@ -87,4 +87,13 @@ class TodoListTest {
         TodoList tdl = new TodoList();
         Assertions.assertThrows(NoSuchElementException.class, () -> tdl.changeCompleteStatus("a"));
     }
+
+    @Test
+    public void getSingularTask() {
+        TodoList tdl = new TodoList();
+        Task task1 = new Task("a", "a");
+        tdl.addTask(task1);
+        Task taskCopy = tdl.getTasks("a");
+        Assertions.assertEquals(task1, taskCopy);
+    }
 }
