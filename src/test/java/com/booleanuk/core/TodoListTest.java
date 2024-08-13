@@ -16,6 +16,12 @@ class TodoListTest {
         Task task = new Task("a", "a");
         Assertions.assertEquals(0, tdl.getTasks().size());
         tdl.addTask(task);
-        Assertions.assertEquals(1, tdl.getTasks.size());
+        Assertions.assertEquals(1, tdl.getTasks().size());
+    }
+
+    @Test
+    public void shouldReturnEmptyList() {
+        TodoList tdl = new TodoList();
+        Assertions.assertEquals(0, tdl.getTasks().size());
     }
 }

@@ -1,7 +1,6 @@
 | Classes    | Methods                                         | Scenario                                  | Outputs                                                 |
 |------------|-------------------------------------------------|-------------------------------------------|---------------------------------------------------------|
 | `TodoList` | `addTask(Task(String name, String description)` | If name and description are valid strings | none                                                    |
-|            |                                                 | If name is not in list                    | ValueError                                              |
 | `TodoList` | `getTasks()`                                    | If list has no entries                    | []                                                      |
 |            |                                                 | If list has an entry                      | [Task]                                                  |
 | `TodoList` | `getTasks(boolean uncompleteFilter)`            | If filter is true                         | All tasks marked as uncompleted                         |
