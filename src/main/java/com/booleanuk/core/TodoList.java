@@ -15,6 +15,7 @@ public class TodoList {
         View view = new View();
         boolean running = true;
         while(running) {
+            String taskName;
             int answer = view.displayMenu();
             switch (answer) {
                 case 1:
@@ -31,15 +32,16 @@ public class TodoList {
                     displayTaskMenu(view, tdl, taskMenuAnswer);
                     break;
                 case 4:
-                    String taskName = view.getTaskName();
+                    taskName = view.getTaskName();
                     if (!tdl.containsName(taskName)) {
-                        System.out.println("There is no task by that name.");
+                        view.noTaskByThatName();
                     } else {
                         view.printTask(tdl.getTask(taskName));
                     }
                     break;
                 case 5:
-                    //TODO
+                    taskName = view.getTaskName();
+                    tdl.removeTask(taskName);
                     break;
                 case 6:
                     running = false;
@@ -135,5 +137,15 @@ public class TodoList {
         } else {
             task.complete();
         }
+    }
+
+    public boolean removeTask(String name) {
+        for (int i = 0; i < tdl.size(); i++) {
+            if (tdl.get(i).getName().equals(name)) {
+                tdl.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -85,4 +85,8 @@ public class View {
         tasks.sort((o1, o2) -> o2.getName().compareTo(o1.getName()));
         printArrayList(tasks);
     }
+
+    public void noTaskByThatName() {
+        System.out.println("There is no task by that name.");
+    }
 }
