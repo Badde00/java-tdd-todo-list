@@ -75,17 +75,6 @@ public class View {
         }
     }
 
-    public void printArrayListSortedByName(ArrayList<Task> tasks) {
-        tasks.sort(Comparator.comparing(Task::getName));
-        printArrayList(tasks);
-    }
-
-    public void printArrayListSortedByNameReversed(ArrayList<Task> tasks) {
-        // The inverse sort wasn't available with the method above, from what I can find
-        tasks.sort((o1, o2) -> o2.getName().compareTo(o1.getName()));
-        printArrayList(tasks);
-    }
-
     public void noTaskByThatName() {
         System.out.println("There is no task by that name.");
     }

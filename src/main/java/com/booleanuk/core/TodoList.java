@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.NoSuchElementException;
 
 public class TodoList {
@@ -58,10 +59,10 @@ public class TodoList {
                 view.printArrayList(tdl.getTasks());
                 break;
             case 2:
-                view.printArrayListSortedByName(tdl.getTasks());
+                view.printArrayList(tdl.getTasksSorted(false));
                 break;
             case 3:
-                view.printArrayListSortedByNameReversed(tdl.getTasks());
+                view.printArrayList(tdl.getTasksSorted(true));
                 break;
             case 4:
                 view.printArrayList(tdl.getTasks(false));
@@ -107,6 +108,16 @@ public class TodoList {
             }
         }
         return filtered;
+    }
+
+    public ArrayList<Task> getTasksSorted(boolean descending) {
+        if (descending) {
+            // The inverse sort wasn't available the way below, from what I can find
+            tdl.sort((o1, o2) -> o2.getName().compareTo(o1.getName()));
+        } else {
+            tdl.sort(Comparator.comparing(Task::getName));
+        }
+        return tdl;
     }
 
     public Task getTask(String name) {
