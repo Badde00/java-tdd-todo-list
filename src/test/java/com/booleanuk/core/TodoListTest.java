@@ -104,4 +104,10 @@ class TodoListTest {
         tdl.addTask(task1);
         Assertions.assertTrue(tdl.removeTask("a"));
     }
+
+    @Test
+    public void removingNonExistentTaskRaisesError() {
+        TodoList tdl = new TodoList();
+        Assertions.assertThrows(NoSuchElementException.class, () -> tdl.removeTask("a"));
+    }
 }
