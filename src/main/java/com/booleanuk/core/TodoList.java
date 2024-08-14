@@ -146,6 +146,6 @@ public class TodoList {
                 return true;
             }
         }
-        return false;
+        throw new NoSuchElementException();
     }
 }
