@@ -110,4 +110,15 @@ class TodoListTest {
         TodoList tdl = new TodoList();
         Assertions.assertThrows(NoSuchElementException.class, () -> tdl.removeTask("a"));
     }
+
+    @Test
+    public void testGetTasksSortedAlphabetically() {
+        TodoList tdl = new TodoList();
+        Task task1 = new Task("a", "a");
+        Task task2 = new Task("b", "b");
+        tdl.addTask(task2);
+        tdl.addTask(task1);
+        Assertions.assertEquals(tdl.getTasks().getFirst(), task2);
+        Assertions.assertEquals(tdl.getTasksSorted(true).getFirst(), task2);
+    }
 }

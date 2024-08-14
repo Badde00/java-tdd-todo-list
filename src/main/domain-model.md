@@ -12,5 +12,5 @@
 |            |                                                 | If there is no task named 'taskName'      | "There is no task by that name"                         |
 | `TodoList` | `removeTask(String taskName)`                   | If there is a task named 'taskName'       | true                                                    |
 |            |                                                 | If there is no task named 'taskName'      | NoSuchElementException                                  |
-| `TodoList` | `getTasks(boolean ascending)`                   | ascending is false                        | A list of tasks, sorted alphabetically a-z              |
+| `TodoList` | `getTasksSorted(boolean descending)`            | ascending is false                        | A list of tasks, sorted alphabetically a-z              |
 |            |                                                 | ascending is true                         | A list of tasks, sorted alphabetically z-a              |
