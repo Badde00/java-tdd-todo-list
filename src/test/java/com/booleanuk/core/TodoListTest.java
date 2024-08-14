@@ -121,4 +121,15 @@ class TodoListTest {
         Assertions.assertEquals(tdl.getTasks().getFirst(), task2);
         Assertions.assertEquals(tdl.getTasksSorted(true).getFirst(), task2);
     }
+
+    @Test
+    public void testGetTasksSortedAlphabeticallyInverse() {
+        TodoList tdl = new TodoList();
+        Task task2 = new Task("a", "a");
+        Task task1 = new Task("b", "b");
+        tdl.addTask(task2);
+        tdl.addTask(task1);
+        Assertions.assertEquals(tdl.getTasks().getFirst(), task2);
+        Assertions.assertEquals(tdl.getTasksSorted(false).getFirst(), task2);
+    }
 }
