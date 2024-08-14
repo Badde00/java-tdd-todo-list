@@ -32,7 +32,12 @@ public class TodoList {
                     break;
                 case 4:
                     String taskName = view.getTaskName();
-                    view.printTask(tdl.getTask(taskName));
+                    if (!tdl.containsName(taskName)) {
+                        System.out.println("There is no task by that name.");
+                    } else {
+                        view.printTask(tdl.getTask(taskName));
+                    }
+                    break;
                 case 5:
                     //TODO
                     break;
@@ -64,7 +69,17 @@ public class TodoList {
                 break;
             default:
                 System.out.println("Something went wrong.");
+                break;
         }
+    }
+
+    public boolean containsName(String name) {
+        for (Task t: tdl) {
+            if (t.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Task> getTasks() {
