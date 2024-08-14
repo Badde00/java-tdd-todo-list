@@ -96,4 +96,12 @@ class TodoListTest {
         Task taskCopy = tdl.getTask("a");
         Assertions.assertEquals(task1, taskCopy);
     }
+
+    @Test
+    public void canRemoveTask() {
+        TodoList tdl = new TodoList();
+        Task task1 = new Task("a", "a");
+        tdl.addTask(task1);
+        Assertions.assertTrue(tdl.removeTask("a"));
+    }
 }
